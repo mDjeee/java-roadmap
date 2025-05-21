@@ -1,0 +1,19 @@
+name: Java CI
+on: [push, pull_request]
+
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin'
+            java-version: '21'
+        - name: Compile HelloWorld
+          run: |
+            javac phase-0/hello-world/HelloWorld.java
+
+        - name: Run
+        - run: |
+            java -cp phase-0/hello-world HelloWorld
